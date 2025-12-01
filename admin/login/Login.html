@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #22ba7d, #2b829a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #1e2f3a;
+    }
+    .card {
+      width: 380px;
+      background: #fdfefe;
+      border-radius: 22px;
+      padding: 28px 30px 30px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      justify-content: center;
+    }
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2f84d4, #3cc0ff);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.3px;
+      color: #1f2c33;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      color: #25333c;
+      font-size: 14px;
+    }
+    .field { margin-bottom: 16px; }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 12px 12px 12px;
+      border: 1px solid #d6dde0;
+      border-radius: 10px;
+      font-size: 14px;
+      background: #f5f8ff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #4ba3e7;
+      box-shadow: 0 0 0 3px rgba(75,163,231,0.2);
+    }
+    .password-wrap {
+      position: relative;
+    }
+    .toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #7a8a94;
+      font-size: 13px;
+      padding: 4px;
+    }
+    button.submit {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2b829a, #22ba7d);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 22px rgba(43,130,154,0.25);
+    }
+    button.submit:hover { transform: translateY(-1px); }
+    button.submit:active { transform: translateY(0); box-shadow: 0 8px 16px rgba(75,163,231,0.25); }
+    .hint {
+      display: none;
+    }
+    .meta { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-row">
+      <div class="logo-mark">A</div>
+      <div>
+        <h1 style="margin:0; font-size:22px;">Admin Portal</h1>
+      </div>
+    </div>
+    <form method="POST" action="Validate.php">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" value="admin" readonly>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input type="password" id="password" name="password" placeholder="Enter password" required autocomplete="current-password">
+          <button type="button" class="toggle" onclick="togglePass()">👁</button>
+        </div>
+      </div>
+      <button class="submit" type="submit">Sign in</button>
+    </form>
+  </div>
+  <script>
+    function togglePass() {
+      var input = document.getElementById('password');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>

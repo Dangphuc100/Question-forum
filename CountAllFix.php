@@ -1,9 +1,10 @@
 <?php
 include 'includes/DatabaseConnection.php';
-function totalJokes(){
-    $query = $pdo->prepare('SELECT COUNT(*) FROM joke');
+function totalQuestions(){
+    $query = $pdo->prepare('SELECT COUNT(*) FROM question');
     $query ->execute();
     $row = $query->fetch();
     return $row[0];
 }
-echo totalJokes($pdo);
+echo totalQuestions($pdo);
+
